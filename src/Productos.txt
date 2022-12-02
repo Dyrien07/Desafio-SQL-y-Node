@@ -1,0 +1,8 @@
+[
+  {
+    "id": 1,
+    "titulo": "Producto 1",
+    "price": "200",
+    "thumbnail": "https://imgs.search.brave.com/QTZsafv5MnJ4sn6eTLGAujfwqnE-35CEAMDuynCT3Ps/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2Uy/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5D/cUxidUlmOW96VHRT/QTVBclNqVmF3SGFI/YSZwaWQ9QXBp"
+  }
+]
