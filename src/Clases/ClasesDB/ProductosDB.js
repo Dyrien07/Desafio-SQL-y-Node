@@ -60,7 +60,7 @@ async getById(id){
     async getAll(){
         try{
             const responense = await this.database.from(this.table).select("*");
-            console.log(responense);
+     
             return responense; 
           
     

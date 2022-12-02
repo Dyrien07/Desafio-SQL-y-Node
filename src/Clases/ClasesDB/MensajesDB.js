@@ -19,7 +19,6 @@ class ContenedorMensajeSQL{
                 }
                 console.log(Contenido);
                 await this.database.from(this.table).insert(Contenido)
-                return  Contenido.id;
             }catch(error){
                 console.log(error)
             }
@@ -31,7 +30,7 @@ class ContenedorMensajeSQL{
         async getAll(){
             try{
                 const responense = await this.database.from(this.table).select("*");
-                console.log(responense);
+                console.log(  "Todo lo de Mensajes" +responense);
                 return responense; 
               
         

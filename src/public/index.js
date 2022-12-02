@@ -28,7 +28,6 @@ socketCliente.on("todosProduct", async (data) =>{
 });
 
 socketCliente.on("messagesChat", (data) =>{
-    console.log(data);
     let message = "";
     data.forEach(Element=>{
         message +=  ` <p><span class ="autor"><b>Autor: ${Element.author}</b>

@@ -30,12 +30,13 @@ const io = new Server(server);
  
 const messages =[];
 io.on("connection",async(socket)=>{
-   
+    const allchat = await chatLog.getAll();
+    io.sockets.emit("messagesChat", allchat);
     console.log("Nuevo Cliente Conectado!");
     const todo = await productos.getAll();
       io.sockets.emit("todosProduct", todo); 
-      const allchat = await chatLog.getAll();
-      io.sockets.emit("messagesChat",allchat);
+ 
+      
 
     socket.on("newProducto",async(data)=>{
       await  productos.save(data);
@@ -43,17 +44,20 @@ io.on("connection",async(socket)=>{
       io.sockets.emit("todosProduct", todo);
     })
 
-    socket.emit("messagesChat", messages)
+    
+
     socket.on("newMsg", async (data)=>{
+        socket.emit("messagesChat", messages)
     const fechaFormat = moment().format('MMMM Do YYYY, h:mm:ss a');
     newdata ={
         ...data,
         fecha: fechaFormat
     }
-    console.log(newdata);
     await chatLog.save(newdata);
-    // Enviamos mensajes a todos los users conectados
-    io.sockets.emit("messagesChat", messages )
+    // Enviamos mensajes a users conectados
+    const allchat = await chatLog.getAll();
+      io.sockets.emit("messagesChat", allchat);
+    
      
 })
     })
